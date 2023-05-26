@@ -1,12 +1,19 @@
 import React from 'react'
-import MainRoute from './component/MainRoute'
-import DataProvider from './GlobalContext'
+import Grid from './component/grid'
+import CreateData from './component/uploadData'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+
 
 function App() {
   return (
-    <DataProvider>
-        <MainRoute/>
-    </DataProvider>
+    <Router>
+
+    <Routes>
+        <Route path={`/`} element={<Grid/>} />
+        <Route path={`/create`} element={<CreateData/>} />
+      
+    </Routes>
+</Router>
   )
 }
 

@@ -23,11 +23,9 @@ mongoose.Promise = global.Promise;
 app.use(cookieParser(process.env.COOKIE_SECRET)) // to enable the signed cookies
 app.use(cors())
 
-app.use(`/api/v1/`, require('./route/authRoute'))
-app.use(`/api/v1/product/`, require('./route/productRoute'))
+
 app.use(`/api/v1/category/`, require('./route/categoryRoute'))
-app.use(`/api/v1/image/`, require('./route/imageRoute'))
-app.use(`/api/v1/order/`, require('./route/orderRoute'))
+
 
 app.all('*', (req,res,next) => {
     res.status(404).json({ msg: `requested path not found, try '/api/v1/'`})

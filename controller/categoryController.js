@@ -21,15 +21,15 @@ const CategoryController = {
     },
     create: async (req,res) => {
         try {
-           const { title, desc } = req.body;
+           const { id, name,marks,result } = req.body;
            
-           let extCat = await Category.findOne({ title })
+           let extCat = await Category.findOne({ name })
                 if(extCat) 
-                    return res.status(400).json({ msg: "Category already exists."})
+                    return res.status(400).json({ msg: "Name already exists."})
             
-            let data = await Category.create({ title, desc })
+            let data = await Category.create({  id, name,marks,result})
 
-           res.json({ msg: "Category created successfully", category: data })
+           res.json({ msg: "data created successfully", category: data })
 
         } catch (err) {
             return  res.status(500).json({ msg: err.message })
@@ -37,15 +37,15 @@ const CategoryController = {
     },
     update: async (req,res) => {
         try {
-            const { title, desc, isActive } = req.body
+            const {  id, name,marks,result, isActive } = req.body
             
             let extCat = await Category.findById({ _id: req.params.id })
                 if(!extCat)
-                    return res.status(400).json({ msg: "Category doesn't exists."})
+                    return res.status(400).json({ msg: "data doesn't exists."})
                 
-              await Category.findByIdAndUpdate({ _id: req.params.id }, { title, desc, isActive })
+              await Category.findByIdAndUpdate({ _id: req.params.id }, { id, name,marks,result, isActive })
 
-                res.status(200).json({ msg: "Category updated successfully"})
+                res.status(200).json({ msg: "data updated successfully"})
 
         } catch (err) {
             return  res.status(500).json({ msg: err.message })
@@ -56,10 +56,10 @@ const CategoryController = {
              
             let extCat = await Category.findById({ _id: req.params.id })
                 if(!extCat)
-                    return res.status(400).json({ msg: "Category doesn't exists."})
+                    return res.status(400).json({ msg: "data doesn't exists."})
                 
            await Category.findByIdAndDelete({ _id: req.params.id })
-            return res.status(200).json({ msg: "Category deleted successfully"})
+            return res.status(200).json({ msg: "data deleted successfully"})
 
         } catch (err) {
             return  res.status(500).json({ msg: err.message })

@@ -1,12 +1,22 @@
 const mongoose = require('mongoose')
 
 const CategoryModel = new mongoose.Schema({
-        title: {
+        id: {
             type: String,
             required: true,
             trim: true
         },
-        desc: {
+        name: {
+            type: String,
+            required: true,
+            trim: true
+        },
+        marks: {
+            type: String,
+            required: true,
+            trim: true
+        },
+        result: {
             type: String,
             required: true,
             trim: true
