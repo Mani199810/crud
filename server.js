@@ -34,5 +34,5 @@ app.all('*', (req,res,next) => {
 
 app.listen(PORT, async () => {
     await connectDb(process.env.MONGO_URL)
-    console.log(`server is started @ http://localhost:${PORT}`)
+    console.log(`server is started @ https://crud-9bdk.onrender.com/${PORT}`)
 })

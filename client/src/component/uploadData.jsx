@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
@@ -21,7 +21,7 @@ function CreateData(props) {
 
   const submitHandler = async (e) => {
       e.preventDefault();
-      const res = await axios.post(`/api/v1/category/create`, category, {
+      await axios.post(`${process.env.baseURL}/api/v1/category/create`, category, {
         headers: {
             'Content-Type': 'application/json',   
         }

@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 
 function Grid() {
@@ -9,10 +8,8 @@ function Grid() {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(5);
 
-  const navigate = useNavigate();
-
   const initCategory = useCallback(async () => {
-    const res = await axios.get(`/api/v1/category/`);
+    const res = await axios.get(`${process.env.baseURL}/api/v1/category/`);
     setCategory(res.data.categories);
   }, []);
 
