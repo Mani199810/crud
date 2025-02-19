@@ -12,7 +12,7 @@ function Grid() {
   const navigate = useNavigate();
 
   const initCategory = useCallback(async () => {
-    const res = await axios.get(`/api/v1/category/all`);
+    const res = await axios.get(`/api/v1/category/`);
     setCategory(res.data.categories);
   }, []);
 
@@ -61,12 +61,14 @@ function Grid() {
           <input
             type='search'
             placeholder='search ... '
-            className='rounded-pill ps-2 ms-4 mb-3 p-1 border border-dark'
+            className='rounded-pill ps-3 ms-4 mb-3 p-1 border border-dark'
             width='500px'
             value={data}
             onChange={(e) => {
               setdata(e.target.value);
             }}
+            style={{ outline: 'none' }}
+
           />
         </form>
         <p colSpan={3}>

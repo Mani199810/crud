@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start-server": "nodemon server.js",
+    "start-server": "npx nodemon server.js",
     "start-client": "cd client && npm start",
     "start": "concurrently \"npm run start-server\" \"npm run start-client\""
   },
@@ -25,5 +25,8 @@
     "mongoose": "^6.10.0",
     "multiselect-react-dropdown": "^2.0.25",
     "nodemailer": "^6.9.1"
-  }
+  },
+  "engines": {
+  "node": "18.x"
+}
 }
