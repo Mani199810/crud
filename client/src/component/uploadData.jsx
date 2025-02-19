@@ -11,7 +11,7 @@ function CreateData(props) {
 
   })
   const navigate = useNavigate()
-  const  base =process.env.baseURL|| 'https://crud-9bdk.onrender.com';
+  const  base =process.env.REACT_APP_BASE_URL || 'https://crud-9bdk.onrender.com';
 
 
 

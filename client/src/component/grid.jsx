@@ -7,7 +7,7 @@ function Grid() {
   const [data, setdata] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(5);
-  const  base =process.env.baseURL|| 'https://crud-9bdk.onrender.com';
+  const  base =process.env.REACT_APP_BASE_URL || 'https://crud-9bdk.onrender.com';
   const initCategory = useCallback(async () => {
     const res = await axios.get(`${base}/api/v1/category/`);
     setCategory(res.data.categories);
