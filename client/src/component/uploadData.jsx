@@ -11,6 +11,7 @@ function CreateData(props) {
 
   })
   const navigate = useNavigate()
+  const  base =process.env.baseURL|| 'https://crud-9bdk.onrender.com';
 
 
 
@@ -21,7 +22,7 @@ function CreateData(props) {
 
   const submitHandler = async (e) => {
       e.preventDefault();
-      await axios.post(`${process.env.baseURL}/api/v1/category/create`, category, {
+      await axios.post(`${base}/api/v1/category/create`, category, {
         headers: {
             'Content-Type': 'application/json',   
         }
